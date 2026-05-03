@@ -1,4 +1,5 @@
 <div align="center">
+  <img src="public/logo.png" alt="AuthFlow Logo" width="120" style="border-radius: 24px; margin-bottom: 20px;" />
   <h1>🔐 AuthFlow</h1>
   <p><strong>A Premium Authentication Experience built with FreeAPI</strong></p>
 
