@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AuthFlow — FreeAPI Authentication</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="intro-panel" aria-labelledby="app-title">
+        <div class="content-group">
+          <p class="eyebrow">Secure Access</p>
+          <h1 id="app-title">Identity, <br/>Simplified.</h1>
+          <p class="lede">
+            Experience seamless authentication using the FreeAPI module. 
+            Register, login, and manage your active session with precision.
+          </p>
+        </div>
+
+        <div class="session-panel">
+          <div class="session-header">
+            <div>
+              <p class="eyebrow">Session State</p>
+              <h2>Current User</h2>
+            </div>
+            <span id="session-status" class="status-pill">Checking</span>
+          </div>
+
+          <div id="profile" class="profile-empty">
+            No active user session detected.
+          </div>
+
+          <div class="session-actions">
+            <button id="refresh-user" class="secondary-button" type="button">
+              Refresh
+            </button>
+            <button id="logout-button" class="danger-button" type="button">
+              Logout
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-panel" aria-label="Authentication forms">
+        <div class="tabs" role="tablist" aria-label="Choose auth form">
+          <button
+            id="login-tab"
+            class="tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="login-form"
+          >
+            Login
+          </button>
+          <button
+            id="register-tab"
+            class="tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="register-form"
+          >
+            Register
+          </button>
+        </div>
+
+        <form id="login-form" class="auth-form" autocomplete="on">
+          <div class="form-heading">
+            <h2>Welcome back</h2>
+            <p>Enter your credentials to access your account.</p>
+          </div>
+
+          <label>
+            Username
+            <input
+              id="login-username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              placeholder="e.g. doejohn"
+              required
+            />
+          </label>
+
+          <label>
+            Password
+            <input
+              id="login-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="••••••••"
+              required
+            />
+          </label>
+
+          <button class="primary-button" type="submit">Sign In</button>
+        </form>
+
+        <form id="register-form" class="auth-form is-hidden" autocomplete="on">
+          <div class="form-heading">
+            <h2>Get Started</h2>
+            <p>Create a new account on the FreeAPI platform.</p>
+          </div>
+
+          <label>
+            Email Address
+            <input
+              id="register-email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              placeholder="name@domain.com"
+              required
+            />
+          </label>
+
+          <label>
+            Username
+            <input
+              id="register-username"
+              name="username"
+              type="text"
+              autocomplete="username"
+              placeholder="e.g. doejohn"
+              required
+            />
+          </label>
+
+          <label>
+            Password
+            <input
+              id="register-password"
+              name="password"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Min. 6 characters"
+              minlength="6"
+              required
+            />
+          </label>
+
+          <label>
+            Account Role
+            <select id="register-role" name="role" required>
+              <option value="USER">Standard User</option>
+              <option value="ADMIN">Administrator</option>
+            </select>
+          </label>
+
+          <button class="primary-button" type="submit">Create Account</button>
+        </form>
+
+        <div id="message" class="message" role="status" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
